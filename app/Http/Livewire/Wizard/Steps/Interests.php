@@ -8,6 +8,7 @@ use App\Traits\Wizard;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Interests extends Component implements Step
 {
@@ -15,12 +16,18 @@ class Interests extends Component implements Step
 
     public array $selectedInterests = [];
 
+    public $selectedTipoPerfil = "";
+
     public Collection $interests;
 
-    public function mount(): void {
+    public function mount($dataInfo): void {
+        $this->dataInfo = $dataInfo;
+
+        Auth::loginUsingId(1);
         $this->interests = Interest::get();
         $this->selectedInterests = auth()->user()->interests()->pluck("interest_id")->toArray();
     }
+
 
     public function rules(): array {
         return [
@@ -55,5 +62,11 @@ class Interests extends Component implements Step
 
     public function render(): Renderable {
         return view('livewire.wizard.steps.interests');
+    }
+
+
+    public function updatedSelectedTipoPerfil($value)
+    {
+
     }
 }

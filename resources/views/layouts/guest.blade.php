@@ -15,6 +15,9 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        @wireUiScripts
+        <script src="//unpkg.com/alpinejs" defer></script>
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">

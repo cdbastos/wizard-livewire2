@@ -16,7 +16,7 @@ class Person extends Component
     use Wizard;
 
     public \App\Models\Person $person;
-
+    
     public Collection $identificationTypes;
     public Collection $sexes ;
     public Collection $departments;
@@ -25,8 +25,13 @@ class Person extends Component
 
     public string $selectedDepartment = "";
 
-    public function mount(): void {
+    public function mount($dataInfo): void {
+        $this->dataInfo = $dataInfo;
+
         $this->person = new \App\Models\Person();
+
+        $this->person->first_name = 'cristian';
+
         $this->identificationTypes = IdentificationType::select(['id','identification_type'])
             ->whereEnabled(true)->pluck('identification_type','id');
 
@@ -88,14 +93,15 @@ class Person extends Component
 
     public function submit(): void {
 
-        $this->validate();
+//        $this->validate();
         //dd("guardando");
-        $this->person->save();
+//        $this->person->save();
+        $this->emitTo('wizard.wizard','setDataInfo', $this->person);
         $this->nextStep();
-        $this->emitTo("wizard.notification", "show", [
-            "title" => "Perfil guardado",
-            "message" => "Tu perfil ha sido guardado correctamente",
-        ]);
+//        $this->emitTo("wizard.notification", "show", [
+//            "title" => "Perfil guardado",
+//            "message" => "Tu perfil ha sido guardado correctamente",
+//        ]);
     }
 
     public function render() : Renderable

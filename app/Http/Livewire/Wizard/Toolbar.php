@@ -12,28 +12,29 @@ class Toolbar extends Component
     public array $steps = [
         "profile" => [
             "step" => 1,
-            "label" => "Datos Básicos",
+            "label" => "Datos Personales",
         ],
         "interests" => [
             "step" => 2,
-            "label" => "Descripción de la PQR",
-        ],
-        "skills" => [
-            "step" => 3,
-            "label" => "Motivo de la PQR",
-        ],
-        "avatar" => [
-            "step" => 4,
-            "label" => "Anexos",
-        ],
-        "notifications" => [
-            "step" => 5,
-            "label" => "Notificaciones",
+            "label" => "Caracterización de Perfil",
         ],
         "finish" => [
-            "step" => 6,
-            "label" => "Finalizar",
+            "step" => 3,
+            "label" => "Finalizar registro",
         ],
+//        "skills" => [
+//            "step" => 4,
+//            "label" => "Motivo de la PQR",
+//        ],
+//        "avatar" => [
+//            "step" => 4,
+//            "label" => "Anexos",
+//        ],
+//        "notifications" => [
+//            "step" => 5,
+//            "label" => "Notificaciones",
+//        ],
+
     ];
 
     protected $listeners = [

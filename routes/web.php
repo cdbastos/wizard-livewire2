@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('form-pqrsf');
 });
 
+
+Route::get('account/registro', function () {
+    return view('form-register');
+});
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

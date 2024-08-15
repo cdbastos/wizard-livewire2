@@ -13,6 +13,8 @@ class Profile extends Component implements Step
 
     public \App\Models\Profile $profile;
 
+    public $dataInfo;
+
     public function mount(): void {
         $this->profile = auth()->user()->profile()->firstOrNew();
     }
@@ -27,6 +29,7 @@ class Profile extends Component implements Step
     }
 
     public function submit(): void {
+        dd('hola mundo');
         $this->validate();
         $this->profile->user_id = auth()->id();
         $this->profile->save();

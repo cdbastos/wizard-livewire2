@@ -7,9 +7,9 @@
 
     <livewire:wizard.toolbar :wire:key="'toolbar-'.time().$currentComponent" :current-step="$currentStep" />
 
-    <livewire:is :wire:key="'component-'.time().$currentComponent" component="wizard.steps.{{ $currentComponent }}" />
+    <livewire:is :wire:key="'component-'.time().$currentComponent" component="wizard.steps.{{ $currentComponent }}" :dataInfo="$dataInfo" />
 
-{{--    <livewire:wizard.notification />--}}
+{{--    <livewire:wizard.notification :wire:key="'toolbar-'.time().$currentComponent"/>--}}
 
 
 </div>
